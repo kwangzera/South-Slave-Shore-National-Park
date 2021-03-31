@@ -1,0 +1,1271 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset='UTF-8'>
+  <title>South Slave Shore National Park</title>
+
+  <style>
+    body {
+      /* Hide the bottom scrollbar because it shows up with nothing off the edge */
+      overflow-x: hidden;
+      overflow-y: auto;
+      background-color: #EEEEEE;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      /* Remove all spaces around webpage */
+      padding: 0;
+      margin: 0;
+    }
+
+    #titlebar {
+      display: block;
+      /* Background picture in the same folder as this */
+      background: url('assets/photographs/great_slave_lake.png');
+      /* Make picture appear once and fill the page */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      /* Make picture scale when resized */
+      position: relative;
+    }
+
+    #titletext {
+      /* Font size is set to 8% of screen width. Example: screen-width = 600px, font-size = 48px */
+      font-size: 8vw;
+      text-align: center;
+      color: #FFFFFF;
+      /* Add padding to make it look good */
+      padding: 10% 5%;
+      padding-bottom: 10px;
+    }
+
+    /* What to do when the width is less than 400 pixels */
+    @media screen and (max-width: 400px) {
+      #titletext {
+        /* Do font-size * (max-width / 100) */
+        font-size: 32px;
+      }
+    }
+
+    /* What to do when the width exceeds 700 pixels */
+    @media screen and (min-width: 700px) {
+      #titletext {
+        /* Make padding constant */
+        padding: 70px 45px;
+        padding-bottom: 10px;
+        font-size: 56px;
+      }
+    }
+
+    #navbar {
+      display: block;
+      background-color: #000000;
+      /* Create no space between the tab buttons */
+      font-size: 0;
+      /* Make navigation bar stretch across the whole screen and make it stay on the whole screen */
+      width: 100%;
+      border-bottom: 1px solid #111111;
+    }
+
+    #navbar button {
+      display: inline-block;
+      background-color: #111111;
+      font-family: inherit;
+      font-size: 2.75vw;
+      color: #BBBBBB;
+      transition-duration: 0.5s;
+      transition-property: color, background-color;
+      position: relative;
+      width: unset;
+      height: 100%;
+      border: 0;
+      padding: 2vw 3vw;
+    }
+
+    @media screen and (max-width: 600px) {
+      #navbar button {
+        font-size: 16.5px;
+        padding: 12px 18px;
+      }
+    }
+
+    @media screen and (min-width: 750px) {
+      #navbar button {
+        font-size: 20.625px;
+        padding: 15px 22.5px;
+      }
+    }
+
+    @media screen and (max-width: 920px) {
+      #navbar button {
+        width: 25%;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      #navbar button {
+        width: 50%;
+      }
+    }
+
+    @media screen and (max-width: 400px) {
+      #navbar button {
+        display: block;
+        width: 100%;
+      }
+    }
+
+    #navbar button.active {
+      background-color: #555555;
+      color: #FFFFFF;
+      transition-duration: 0.3s;
+    }
+
+    #navbar button:hover {
+      background-color: #777777;
+    }
+
+    .tabtext {
+      display: none;
+      color: #111111;
+      width: 100%;
+    }
+
+    .tabtext.active {
+      display: block;
+    }
+
+    .tabtext h1,
+    .tabtext h2,
+    .tabtext h3,
+    .tabtext h4,
+    .tabtext h5,
+    .tabtext h6,
+    .tabtext p,
+    .tabtext table {
+      padding-left: 3vw;
+      padding-right: 7vw;
+    }
+
+    .tabtext img {
+      display: inline-block;
+      width: 70%;
+    }
+
+    .tabtext ul {
+      width: 90%;
+      margin-left: 3vw;
+    }
+
+    .tabtext table {
+      width: 94%;
+      margin-left: 3vw;
+      border-collapse: collapse;
+    }
+
+    .tabtext table,
+    .tabtext th,
+    .tabtext td {
+      border: 1px solid #111111;
+    }
+
+    .tabtext th,
+    .tabtext td {
+      padding: 8px;
+    }
+
+    .tabtext abbr {
+      text-decoration: none;
+    }
+
+    #Home .homepanel {
+      font-size: 0;
+      width: 94%;
+      height: 20vh;
+      margin-left: 3vw;
+    }
+
+    #Home img {
+      display: inline-block;
+      object-fit: cover;
+      width: 33%;
+      height: 100%;
+    }
+
+    #Home abbr {
+      width: 33%;
+      height: 100%;
+    }
+
+    #Campgrounds .camppanels {
+      font-size: 0;
+      width: 94%;
+      height: 70vw;
+      margin-left: 3vw;
+    }
+
+    #Campgrounds .camppanel {
+      display: inline-block;
+      object-fit: fill;
+      width: 50%;
+      height: 50%;
+    }
+
+    #Campgrounds .campimages tr td img {
+      display: block;
+      object-fit: fill;
+      width: 100%;
+      padding: 0;
+    }
+
+    #Campgrounds .utilities {
+      color: #2233FF;
+    }
+
+    footer {
+      background-color: #000000;
+      color: #FFFFFF;
+      font-size: 13px;
+      text-decoration: none;
+      width: 100%;
+      padding-left: 3vw;
+      padding-right: 7vw;
+      padding-top: 1vh;
+    }
+
+    footer a:link {
+      color: inherit;
+    }
+
+    footer a:visited {
+      color: #7777FF;
+    }
+
+    footer a:hover {
+      color: #AAAAAA;
+      text-decoration: underline;
+    }
+
+    footer a:active {
+      color: #BBBBBB;
+    }
+  </style>
+</head>
+
+<body>
+  <div id=titlebar>
+    <div id=titletext>
+      <b><u>South Slave Shore National Park</u></b>
+      <img src=assets/logos/sssnp_logo.png>
+    </div>
+  </div>
+
+  <div id=navbar>
+    <!-- Default tab (id=home) -->
+    <button class=navtab id=home>Home</button>
+    <button class=navtab>Campgrounds</button>
+    <button class=navtab>Activities</button>
+    <button class=navtab>Features</button>
+    <button class=navtab>History</button>
+    <button class=navtab>Sustainability</button>
+    <button class=navtab>Other</button>
+  </div>
+
+  <div class=tabtext id=Home>
+    <h1>Home</h1>
+    <hr>
+
+    <p>
+      Welcome to South Slave Shore National Park. In this park, our goal is to preserve the nature around us, so you as
+      tourists can explore and discover the magnificence of our park on your own. You are guaranteed to enjoy thousands
+      of lakes of all shapes and sizes at our park, from ones that are less them 100 meters across to the massive Great Slave
+      Lake. Our rolling hills are not too high, only reaching elevations of about 200 meters which is an ideal place to
+      go hiking across. Ascend the hills and see the surrounding landscape, and descend down the hills to enjoy the
+      forest around you. With a big lake nearby, walk along the shores of Great Slave Lake, or even take a ferry to some
+      of the northern islands and have the experience of a lifetime.
+    </p>
+
+    <p>
+      You can explore our park in the following ways:
+    </p>
+
+    <ul>
+      <li>By Foot</li>
+      <li>By Car</li>
+      <li>By Bike</li>
+      <li>By Canoe</li>
+      <li>Much more! Our park is yours to explore and enjoy.</li>
+    </ul>
+
+    <p>
+      In addition, our park offers many different activities. You can click on any one of the activities to go to the
+      different activity section that describes each of the following activities:
+    </p>
+
+    <ul>
+      <li>Experience treetop trekking of various difficulties at our park!</li>
+      <li>Spend a day relaxing or adventuring in our 5 campsites! (More details in the Campgrounds tab)</li>
+      <li>Enjoy your time at our RV park or Lodge area!</li>
+      <li>Experience a never before 'Boathousing' experience as you spend a day or two in a boathouse!</li>
+      <li>Take a day to enjoy our water sports, such as canoeing, kayaking, fishing or paddleboarding near our lakes!</li>
+      <li>Take a boating trip to Preble Island or Simpson Island and enjoy a picnic experience there!</li>
+      <li>Go sightseeing in almost anywhere, (our best spots are marked on the map) for a unique experience!</li>
+      <li>Get some exercise by hiking, jogging, or biking along our 16 trails of different difficulties!</li>
+      <li>Take a trip to the ruins of Rocher River and learn about the historical significance of our park!</li>
+      <li>And many other fun programs our park offers!</li>
+    </ul>
+
+    <p>
+      Here is a brief overview of our park:
+    </p>
+
+    <table>
+      <tr>
+        <th>Area</th>
+        <td>4 000 km²</td>
+      </tr>
+      <tr>
+        <th>Perimeter</th>
+        <td>444 km</td>
+      </tr>
+      <tr>
+        <th>Biomes</th>
+        <td>Boreal and Taiga Forest</td>
+      </tr>
+      <tr>
+        <th>Landform Regions</th>
+        <td>On the border between the Canadian Shield and the Interior Plains</td>
+      </tr>
+      <tr>
+        <th>Soil Type</th>
+        <td>Wet-climate soil</td>
+      </tr>
+      <tr>
+        <th>Average Temperature</th>
+        <td>0.2°C</td>
+      </tr>
+    </table>
+
+    <p>
+      To book campsites, click <a href='https://docs.google.com/spreadsheets/d/1o7UOBuiI-5pqHw8uTGbqiBCRqm46k8Hx4ap782j5CIw/edit?usp=sharing' target=_blank>here</a>
+    </p>
+
+    <p>
+      To explore more about our park, click the tabs above or check out our top 3 attractions below:
+    </p>
+
+    <div class=homepanel>
+      <a href='#Boathouse' onclick='tabOpen("Campgrounds")'>
+        <abbr title='Boathousing. Camping on water!'><img src='assets/photographs/boathouse.png'></abbr>
+      </a>
+      <a href='#Adventure' onclick='tabOpen("Campgrounds")'>
+        <abbr title='Campsite 6, for hardcore campers'><img src='assets/photographs/tent.png'></abbr>
+      </a>
+      <a href='#Rocher+River' onclick='tabOpen("History")'>
+        <abbr title='Visit the ruins of Rocher River'><img src='assets/photographs/rocher_river.png'></abbr>
+      </a>
+    </div>
+
+    <p>
+    </p>
+  </div>
+
+  <div class=tabtext id=Campgrounds>
+    <h1>Campgrounds</h1>
+    <hr>
+
+    <p>
+      Our national park offers a total of 9 places to stay. Click on the image to jump to the corresponding section:
+    </p>
+
+    <div class=camppanels>
+      <a href='#Campsite'>
+        <abbr title=Campsite><img class=camppanel src='assets/logos/campsites_logo.png'></abbr>
+      </a>
+      <a href='#RV+Park'><abbr title='RV Park'><img class=camppanel src='assets/logos/rv_park_logo.png'></abbr>
+      </a>
+      <br>
+      <a href='#Lodge'>
+        <abbr title=Lodge><img class=camppanel src='assets/logos/campsite_lodge_logo.png'></abbr>
+      </a>
+      <a href='#Boathouse'>
+        <abbr title=Boathouse><img class=camppanel src='assets/logos/boathouse_logo.png'></abbr>
+      </a>
+    </div>
+
+    <h2><a name=Campsite>Campsites:</a></h2>
+
+    <p>
+      We have a total of 6 campsites. Five of them are located near the entrance of the park while the other one is
+      located near the northeastern edge of the park.
+    </p>
+
+    <p>
+      For novice campers, campsites 1-5 are perfect. Equipped with flowing water and electricity,
+      including the scenery around with the optimal placements to other services makes these campsites a nice package
+      for one who just wants a day or two off work to relax.
+    </p>
+
+    <p>
+      The following campsites are for campers that just want a casual camping experience. The data below describes each
+      of the campsites and its accessibility features, booking times as well as its opening time.
+    </p>
+
+    <table class=campimages>
+      <tr>
+        <th>Campsite</th>
+        <th>Brief Description</th>
+      </tr>
+      <tr>
+        <td><img src='assets/campsites/campsite1.png'></td>
+        <td>
+          <b>Campsite 1:</b><br>
+          12.5 km²<br>
+          150 Campsites Available<br>
+          Max 6 people per site<br>
+          Currently rated 9/10 based on recent reviews
+          <hr>
+          <b>Utilities:</b><br>
+          <span class=utilities>
+            Sanitary Disposal Station<br>
+            First Aid<br>
+            Parking<br>
+            Restrooms<br>
+            Drinking Water<br>
+            Emergency Telephone<br>
+            Recycling
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td><img src='assets/campsites/campsite2.png'></td>
+        <td>
+          <b>Campsite 2:</b><br>
+          9.38 km²<br>
+          75 Campsites Available<br>
+          Max 5 people per site<br>
+          Currently rated 8.7/10 based on recent reviews
+          <hr>
+          <b>Utilities:</b><br>
+          <span class=utilities>
+            Sanitary Disposal Station<br>
+            First Aid<br>
+            Parking<br>
+            Restrooms<br>
+            Drinking Water<br>
+            Emergency Telephone<br>
+            Recycling<br>
+            Wheelchair Accessible
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td><img src='assets/campsites/campsite3.png'></td>
+        <td>
+          <b>Campsite 3:</b><br>
+          11.1 km²<br>
+          90 Campsites Available<br>
+          Max 6 people per site<br>
+          Currently rated 4.5/10 based on recent reviews
+          <hr>
+          <b>Utilities:</b><br>
+          <span class=utilities>
+            Sanitary Disposal Station<br>
+            First Aid<br>
+            Parking<br>
+            Restrooms<br>
+            Drinking Water<br>
+            Emergency Telephone<br>
+            Recycling<br>
+            Wheelchair Accessible
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td><img src='assets/campsites/campsite4.png'></td>
+        <td>
+          <b>Campsite 4:</b><br>
+          13.9 km²<br>
+          150 Campsites Available<br>
+          Max 4 people per site<br>
+          Currently rated 9.8/10 based on recent reviews
+          <hr>
+          <b>Utilities:</b><br>
+          <span class=utilities>
+            Sanitary Disposal Station<br>
+            First Aid<br>
+            Parking<br>
+            Restrooms<br>
+            Drinking Water<br>
+            Emergency Telephone<br>
+            Recycling<br>
+            Showers<br>
+            Wifi<br>
+            Electrical Service
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td><img src='assets/campsites/campsite5.png'></td>
+        <td>
+          <b>Campsite 5:</b><br>
+          22.7 km²<br>
+          200 Campsites Available<br>
+          Max 8 people per site<br>
+          Currently rated 5.4/10 based on recent reviews<br>
+          Good for those who want to try 'no waste' camping
+          <hr>
+          <b>Utilities:</b><br>
+          <span class=utilities>
+            First Aid<br>
+            Parking<br>
+            Restrooms<br>
+            Drinking Water<br>
+            Emergency Telephone
+          </span>
+        </td>
+      </tr>
+    </table>
+
+    <p>
+    </p>
+
+    <table>
+      <tr>
+        <th>Site</th>
+        <th>Cost per Night (As of 04/03/19)</th>
+        <th>Opening and Closing Dates</th>
+        <th>Availability (As of 04/03/19)</th>
+      </tr>
+      <tr>
+        <td>Campsite 1</td>
+        <td>$87</td>
+        <td>April 16, 2019 to October 24, 2019</td>
+        <td style='background-color: rgb(255, 205, 0);'>56% Booked</td>
+      </tr>
+      <tr>
+        <td>Campsite 2</td>
+        <td>$84</td>
+        <td>Mar 23, 2019 to November 7, 2019</td>
+        <td style='background-color: rgb(230, 99, 49);'>88% Booked</td>
+      </tr>
+      <tr>
+        <td>Campsite 3</td>
+        <td>$73</td>
+        <td>April 1, 2019 to October 4, 2019</td>
+        <td style='background-color: rgb(186, 255, 1);'>36% Booked</td>
+      </tr>
+      <tr>
+        <td>Campsite 4</td>
+        <td>$93</td>
+        <td>April 6, 2019 to October 28, 2019</td>
+        <td style='background-color: rgb(204, 0, 0);'>93% Booked</td>
+      </tr>
+      <tr>
+        <td>Campsite 5</td>
+        <td>$68</td>
+        <td>Mar 23, 2019 to September 13, 2019</td>
+        <td style='background-color: rgb(170, 255, 157);'>14% Booked</td>
+      </tr>
+    </table>
+
+    <h2><a name=Adventure>The Adventure Campsite:</a></h2>
+
+    <p>
+      Calling all adventurers! If you qualify as one, campsite 6 is for you. Its rugged terrain makes camping on
+      the slant of a hill or even dangling from treetops possible! This campsite provides even campers with the highest
+      level of experience a challenge.
+    </p>
+
+    <p>
+      Campsite 6 is a special campsite. Nestled in rugged terrain, it is for campers who have a <b>high level of
+      experience with camping</b>. Those who are inexperienced are recommended to bring someone experienced, but all are welcome.
+      The table below (May need to scroll down a bit) shows the information for this campsite, the RV park, the Park
+      Lodge and the Boathouse Site.
+    </p>
+
+    <h2><a name='RV+Park'>RV Park:</a></h2>
+
+    <p>
+      The RV park is great if you just want to relax, but don't want to spend too much time cooking outside, setting up
+      a tent, and having a hard time when there is rain. Our RV park offers enjoyment for those who are craving an
+      escape but not too full of exploration.
+    </p>
+
+    <h2><a name=Lodge>Park Lodge:</a></h2>
+
+    <p>
+      For people who want to take relaxation to a whole new level, the Park Lodge is a good option for you. Each lodge
+      is equipped with a working fireplace and washroom, to ensure you can stay warm and clean. Enjoy the bonfire at the
+      center of the Park Lodge area at night, participate in activities that run all day, or just take a nap in your
+      lodge.
+    </p>
+
+    <h2><a name=Boathouse>Boathouse Site:</a></h2>
+
+    <p>
+      The Boathouse Site is one of our most popular attractions. Spend a day camping, on water! Our boathouses are fully
+      equipped with a washroom system, beds, and basically anything you would find in a simple house. Remember you have
+      to canoe there. Enjoy your time out at the lake, and even try to catch some fish, but just remember to not get seasick!
+    </p>
+
+    <table class=campimages>
+      <tr>
+        <th>Area</th>
+        <th>Brief Description</th>
+      </tr>
+      <tr>
+        <td><img src='assets/campsites/campsite6.png'></td>
+        <td>
+          <b>Campsite 6:</b><br>
+          9.6 km²<br>
+          45 Campsites Available<br>
+          Max 2 people per site<br>
+          Currently rated 6.8/10 based on recent reviews
+          <hr>
+          <b>Utilities</b><br>
+          <span class=utilities>
+            First Aid<br>
+            Parking<br>
+            Restrooms<br>
+            Drinking Water<br>
+            Emergency Telephone<br>
+            Recycling
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td><img src='assets/campsites/rv_park_site.png'></td>
+        <td>
+          <b>RV Park:</b><br>
+          32.3 km²<br>
+          75 Campsites Available<br>
+          Max people per site based on RV size. (RV must fit in the site)<br>
+          Currently rated 7.9/10 based on recent reviews
+          <hr>
+          <b>Utilities</b><br>
+          <span class=utilities>
+            First Aid<br>
+            Parking<br>
+            Restrooms<br>
+            Drinking Water<br>
+            Emergency Telephone<br>
+            Electrical Service<br>
+            Litter Receptacle
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td><img src='assets/campsites/park_lodge_site.png'></td>
+        <td>
+          <b>Park Lodge:</b><br>
+          36.9 km²<br>
+          50 Campsites Available<br>
+          Max 5 people per site<br>
+          Currently rated 8.2/10 based on recent reviews
+          <hr>
+          <b>Utilities</b><br>
+          <span class=utilities>
+            First Aid<br>
+            Parking<br>
+            Restrooms<br>
+            Drinking Water<br>
+            Emergency Telephone<br>
+            Electrical Service<br>
+            Litter Receptacle<br>
+            Campfire
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td><img src='assets/campsites/boathouse_site.png'></td>
+        <td>
+          <b>Boathouse Site:</b><br>
+          17.4 km²<br>
+          25 Boathouses Available<br>
+          Max 4 people per site<br>
+          Currently rated 9.3/10 based on recent reviews
+          <hr>
+          <b>Utilities</b><br>
+          <span class=utilities>
+            Marina<br>
+            First Aid<br>
+            Parking<br>
+            Restrooms<br>
+            Drinking Water<br>
+            Emergency Telephone<br>
+            Showers
+          </span>
+        </td>
+      </tr>
+    </table>
+
+    <p>
+    </p>
+
+    <table>
+      <tr>
+        <th>Site</th>
+        <th>Cost per Night (As of 04/03/19)</th>
+        <th>Opening and Closing Dates</th>
+        <th>Availability (As of 04/03/19)</th>
+      </tr>
+      <tr>
+        <td>Campsite 6</td>
+        <td>$89</td>
+        <td>April 10, 2019 to September 31, 2019</td>
+        <td style='background-color: rgb(147, 242, 255);'>4% Booked</td>
+      </tr>
+      <tr>
+        <td>Park Lodge</td>
+        <td>$125</td>
+        <td>All Year</td>
+        <td style='background-color: rgb(230, 99, 49);'>80% Booked</td>
+      </tr>
+      <tr>
+        <td>RV Park</td>
+        <td>$99</td>
+        <td>February 3 to September 9, 2019</td>
+        <td style='background-color: rgb(255, 253, 55);'>50% Booked</td>
+      </tr>
+      <tr>
+        <td>Boathouse Site</td>
+        <td>$130</td>
+        <td>May 4, 2019 to August 31, 2019</td>
+        <td style='background-color: black; color: white;'>100% Booked</td>
+      </tr>
+    </table>
+
+    <p>
+      To book campsites, click <a href='https://docs.google.com/spreadsheets/d/1o7UOBuiI-5pqHw8uTGbqiBCRqm46k8Hx4ap782j5CIw/edit?usp=sharing'target=_blank>here</a>
+    </p>
+  </div>
+
+  <div class=tabtext id=Activities>
+    <h1>Activities</h1>
+    <hr>
+
+    <h2>Treetop Trekking:</h2>
+
+    <p>
+      Experience treetop trekking at our park for those who want a thriller, but also want to stay safe. A perfect way to
+      step outside of your comfort zone.
+    </p>
+
+    <p>
+      More information located at the visitor’s center, information centers and the location of this activity.
+    </p>
+
+    <h2>Road Trips:</h2>
+
+    <p>
+      Our roads are extremely long, covering a distance of about 510 kilometers. The roads are for you to enjoy driving
+      through, day and night.
+    </p>
+
+    <p>
+      More information located at the visitor’s center and information centers.
+    </p>
+
+    <h2>Basic Camping:</h2>
+
+    <p>
+      The normal campsites for those who want a safe and fun experience. Perfect for family fun or individual
+      recreation.
+    </p>
+
+    <h2>Additional Camping:</h2>
+
+    <h4>The Adventurer's Campsite:</h4>
+
+    <p>
+      For those who want a challenge from traditional camping, Camping on the edge of slanted rocks would be perfect for
+      and adventurer of any type.
+    </p>
+
+    <h4>Park Lodge:</h4>
+
+    <p>
+      Perfect for those who love a luxury lifestyle but want a chance to get our into the open. The park lodge promises
+      a warm place to stay and enjoy.
+    </p>
+
+    <h4>RV Park:</h4>
+
+    <p>
+      If you don’t want to leave your vehicle, but want to enjoy a camping experience, then you should try taking a trip
+      to our RV park.
+    </p>
+
+    <h4>Boathouse Site:</h4>
+
+    <p>
+      Ever imagined what it felt like to camp on water, or even live on a boat. If you want to satisfy both of these
+      experiences, you should come out in the waters and feel what it's like to live on a movable house.
+    </p>
+
+    <p>
+      More information located at the visitor’s center, information centers, the location of this activity and the <a href='#Adventure' onclick='tabOpen("Campgrounds")'>Campgrounds tab</a>.
+    </p>
+
+    <h2>Aquatic Activities:</h2>
+
+    <h4>Canoeing:</h4>
+
+    <p>
+      Fun for all ages, just the water can sometimes be a bit cold. Otherwise, you can enjoy the scenery around you as
+      you row and observe clear waters.
+    </p>
+
+    <h4>Kayaking:</h4>
+
+    <p>
+      Go alone or go as a group, and explore the northwest waters for yourself.
+    </p>
+
+    <h4>Paddleboarding:</h4>
+
+    <p>
+      Exclusive for travellers only in the summer, Try this combination of canoeing and surfing, while you look at the
+      fish swimming below your board.
+    </p>
+
+    <h4>Ferry:</h4>
+
+    <p>
+      Our tours to the Northern Islands of our park can be reached by taking a 10-minute boat ride. Enjoy the breeze
+      while it lasts.
+    </p>
+
+    <h4>Fishing:</h4>
+
+    <p>
+      With the abundance of fish, you could come to our park and try to catch some yourself. The spring is the best
+      season if you want to catch some trout, and the summer is great if you want to catch some smallmouth bass. Have
+      freshly caught dinner at your campsite. Just remember fishing regulations, and how much to catch.
+    </p>
+
+    <p>
+      More information located at the visitor’s center, information centers, and the location of this activity.
+    </p>
+
+    <h2>Sightseeing and Trails:</h2>
+
+    <p>
+      Take a day’s time to explore each of the 16 trails of various difficulty (5 easy, 5 medium, and 6 difficult), and
+      even encounter some animals there, but remember, safety is the first priority.
+    </p>
+
+    <p>
+      More information located at the visitor’s center, information centers, the location of this activity, and the map.
+    </p>
+
+    <h2>Ruins of Rocher River:</h2>
+
+    <p>
+      Learn about the remains of a once thriving village and visit this well preserved archeological site. The area is
+      yours to explore, with a video that plays repeatedly every 30 minutes in one of our buildings.
+    </p>
+
+    <p>
+      More information located at the visitor’s center, information centers, the location of this activity, and the <a href='#Rocher+River' onclick='tabOpen("History")'>History tab</a>.
+    </p>
+  </div>
+
+  <div class=tabtext id=Features>
+    <h1>Physical and Ecological Features</h1>
+    <hr>
+
+    <p>
+      We have a lot of cool facts and awesome features. Continue below to learn more about us.
+    </p>
+
+    <h2>Landform:</h2>
+
+    <p>
+      <img src='assets/maps/interior_plains.png'>
+    </p>
+
+    <p>
+      Our land is composed of two very distinct parts. The western half is part of the Interior Plains and have rolling
+      hills and rich soil. They were formed around 1.9 billion years ago and are made of sediments worn down from the
+      Canadian Shield. The eastern half is part of the Canadian Shield which has rugged terrain and little soil.
+    </p>
+
+    <p>
+      The Canadian Shield is one of the oldest regions of the world, being formed nearly 4 billion years ago. This
+      region used to have high mountains but millions of years of erosion have worn them down to the rolling hills they
+      have now. The last ice age had glaciers that, when the planet began to warm up again, retreated and scraped the
+      soil off, leaving the rocky look today.
+    </p>
+
+    <p>
+      The Interior Plains used to be shallow seas with aquatic life. The seas housed many marine animals and coral
+      reefs. When the ground under the sea rose, the coral reefs died and left behind fossil fuels and fertile soil from
+      the dead marine animals. The land is now used for farming and extraction.
+    </p>
+
+    <p>
+      Our land is on the Canadian boreal and taiga forest, with its coniferous trees and cold weather. The treeline is
+      still further north than us meaning that our trees can still survive, though with some special
+      adaptations.<br><br>
+      <img src=assets/photographs/taiga.png>
+    </p>
+
+    <h2>Wildlife:</h2>
+
+    <p>
+      In the western part of Great Slave Lake, lake whitefish are abundant as they avoid the deeper areas of the
+      eastern part. In the eastern part, lake trout and grayling can be seen. Near the southern shore, you can find
+      goldeye, white suckers, and walleye.
+    </p>
+
+    <p>
+      The Great Slave Lake is part of the Canadian boreal and taiga forest. This means that there are many birds and
+      mammals adapted to the cold. The boreal forest contains moose, caribou, grizzly and black bears, wolves,
+      kingfishers, bobcats, owls, and chickadees. Many of these animals have adapted to the climate of the boreal forest
+      such as gaining white fur, thicker feathers, or better senses to find and catch its prey.
+    </p>
+
+    <p>
+      You can hover over the pictures with your mouse to determine the animal or plant<br><br>
+      <abbr title='Moose'><img src='assets/photographs/moose.png'><br>
+      <abbr title='Caribou'><img src='assets/photographs/caribou.png'><br>
+      <abbr title='Black Bear'><img src='assets/photographs/bear.png'><br>
+      <abbr title='Grizzly Bear'><img src='assets/photographs/grizzly.png'><br>
+      <abbr title='Kingfisher'><img src='assets/photographs/kingfisher.png'><br>
+      <abbr title='Bobcat'><img src='assets/photographs/bobcat.png'><br>
+      <abbr title='Great Grey Owl'><img src='assets/photographs/owl.png'><br>
+      <abbr title='Chickadee'><img src='assets/photographs/chickadee.png'>
+    </p>
+
+    <p>
+      Our land lies south of the treeline, meaning that you can find coniferous forests in us. We are however between
+      the woodland and tundra climate regions. We have jack pine and spruce near the lake in thick forests.<br><br>
+      <abbr title='Spruce Tree'><img src='assets/photographs/spruce.png'><br>
+      <abbr title='Jack Pine'><img src='assets/photographs/jack_pine.png'>
+    </p>
+  </div>
+
+  <div class=tabtext id=History>
+    <h1>History</h1>
+    <hr>
+
+    <h2><a name='Rocher+River'>The Sad History of Rocher River:</a></h2>
+
+    <p>
+      Near the mouth of the Rocher River, there lie the ruins of an abandoned town over 200 years old. The Rocher River
+      community, probably one of the first European settlements, had over 200 people, but they have been forced away by
+      the school's destruction by fire in 1960, the closing of the Hudson's Bay Company's post, and the burning down of
+      the Ed and Rose Demelt's store. The construction of the Taltson River dam upstream from the community further
+      increased the need to leave, as the community was dependent on hunting and trapping to live. After the dam was
+      built, the community which once thrived at Rocher River all left, leaving an abandoned village.
+    </p>
+
+    <p>
+      The former residents of the Rocher River found themselves in a new place. Some got a job, some joined other first
+      nations tribes, and some even found a good home. However, there were those who were not so lucky. The unfortunate
+      individuals found themselves turning to alcoholism and ending up dying on the streets of Yellowknife.
+    </p>
+
+    <p>
+      Some of the once inhabitants of Rocher River still return to their seasonal cabins where the former town was.
+    </p>
+
+    <h2>The History of Great Slave Lake:</h2>
+
+    <p>
+      The Great Slave Lake is one of the several large lakes in northern Canada, and they were made from retreating
+      glaciers that scraped soil away and melted to create the lake we know today. The deepest point of the lake,
+      Christie Bay (which is not in our park), is 614 meters, carved from the glaciers that one existed. This lake, like
+      the other large northern lakes, lays on the boundary between the Interior Plains and the Canadian
+      Shield.<br><br>
+      <img src=assets/photographs/great_slave_lake.png>
+    </p>
+
+    <p>
+      Evidence of civilization living near Great Slave Lake can be traced back to over 5000 BCE, belonging to the people
+      of the Dene, otherwise known as 'Slaveys' who lived on the eastern shore of the lake.
+    </p>
+
+    <p>
+      However, in the 18th to the 19th century, as the exploration of Canada started, non-indigenous people (Europeans)
+      Started to visit, and even settle near Great Slave Lake. Trade was developed between the indigenous and the
+      non-indigenous, as the Dene people began to establish their own trading post. As time passes, more trading posts
+      became apparent, including Fort Resolution, after the Hudson Bay Company and the North West Company
+      combined.
+    </p>
+
+    <p>
+      You can hover over the image with your mouse for a short caption:<br><br>
+      <abbr title='Fort Resolution Trading Post'><img src='assets/photographs/trading_post.png'></abbr>
+    </p>
+
+    <p>
+      In the late 19th century, social changes to the indigenous people living around Great Slave Lake started. The
+      arrival of Christian missionaries set down the establishment of 3 residential schools near Great Slave Lake. The
+      first one in Fort Providence, The Second one in Hay River and The final one in Fort Resolution.
+    </p>
+
+    <p>
+      You can hover over the image with your mouse for a short caption:<br><br>
+      <abbr title='Fort Resolution Residential School'><img src='assets/photographs/residential_school.png'></abbr>
+    </p>
+
+    <p>
+      The First Nations near the trading posts started to complain, and there were disputes between them and other
+      tribes and also with the Europeans, and some First Nations made complaints about their rights to fishing taken
+      away. The Europeans decided that it was best to just offer them a one time payment to settle their legal claims
+      with the government.
+    </p>
+
+    <p>
+      The discovery of gold in 1934 set off a chain of events in the North side of the lake, causing a gold rush. A
+      company, Consolidated Mining and Smelting opened Con Mine in 1938, and was joined with another one, Great Mine in
+      1948 after World War II. Later, a zinc mine was opened on the south shore of Great Slave Lake, and a town was built
+      and later abandoned after the closure of the zinc mine in 1988, Con Mine in 2003 and Great Mine the year
+      following.
+    </p>
+
+    <p>
+      Additionally, the post war period brought many fishers to Great Slave Lake, and with an analysis done by
+      biologists, the lake was found to be blooming with fish, and this would be a great opportunity for the harvesting
+      of fish. As a result, the government established fisheries near the shores of Great Slave Lake, where both
+      indigenous and non-indigenous people would often come and fish.
+    </p>
+  </div>
+
+  <div class=tabtext id=Sustainability>
+    <h1>Park Sustainability</h1>
+    <hr>
+
+    <h2>Actions:</h2>
+
+    <p>
+      We are cleaning up the arsenic in and around the park and lake. The arsenic trioxide was produced in the Giant
+      Mine that produced gold. The mine has since closed but the arsenic is still floating around. An enormous 237 000
+      tons of arsenic dust was stored underground just hundreds of meters from the lake, threatening further
+      contamination. We will collaborate with the ongoing cleanup from the government.
+    </p>
+
+    <p>
+      You can help us by not throwing trash into the lake and not drinking the lake water. Please do not feed wild
+      animals as they may eat something different. Feeding them unknown foods may shock their systems and could cause
+      injury or death to the animal.
+    </p>
+
+    <h2>Park Rules:</h2>
+
+    <p>
+      Failure to follow basic park rules will result in warnings, fines and permanent bans from our park. Several
+      basic ones are listed below:
+    </p>
+
+    <ul>
+      <li>Leave the park the way you found it.</li>
+      <li>Keep twigs and leaves where they were, whether on a tree or on the ground.</li>
+      <li>Dispose of your garbage in proper Sanitary Disposal Stations and use proper restrooms and outhouses.</li>
+      <li>Everyone is here to have an extra day off work, so please treat them the way you would want to be treated.</li>
+      <li>No loud noises past 22:00 in our campsites.</li>
+      <li>No game shall be caught in this park.</li>
+      <li>Go to the designated areas for your activities.</li>
+    </ul>
+  </div>
+
+  <div class=tabtext id=Other>
+    <h1>Other:</h1>
+    <hr>
+
+    <h2>FAQs:</h2>
+
+    <p>
+      Q: How can I get here?<br>
+      A: You can get here by taking the Fort Resolution highway and continuing on the extension to the park.
+    </p>
+
+    <p>
+      Q: Can I cancel my campsite reservation once I confirmed it?<br>
+      A: Absolutely. You can cancel anytime. Just go to the booking spreadsheet, go to my campsites, and then click
+      on the cancel button.
+    </p>
+
+    <p>
+      Q: How do I change a campsite?<br>
+      A: Just go to the booking spreadsheet, go to my campsites, and then click on change. Then choose a new campsite.
+      Be warned that others may have picked the campsite that you want.
+    </p>
+
+    <p>
+      Q: Why doesn't campsite 6 fall under the 'campsites' category?<br>
+      A: Campsite 6 is a special campsite. Its difficulty level is much higher than the conventional ones (Campsites
+      1-5). It is because of its difficulty which makes it stand out from the rest so we include it with the others.
+    </p>
+
+    <p>
+      Q: Is the drinking water safe, or should I still boil my water?<br>
+      A: The tap water has been filtered and safe. However, we strongly recommend that you still boil your drinking
+      water as other bacteria may have found their way into the water after our filtration but before usage.
+    </p>
+
+    <p>
+      Q: Do I have to purchase firewood?<br>
+      A: Yes, you are not allowed to use wood from our park or bring your own firewood, mainly because the preservation
+      of our park is very important to us and you are not allowed to bring your own for the risk of invasive species.
+    </p>
+
+    <p>
+      Q: If I booked a spot in the lodge or the boathouses, what should I bring?<br>
+      A: At the bare minimum, you should bring a small propane stove (With gas), a sleeping bag, some food (with a
+      cooler), some clothes, and toiletries. Washrooms and empty bunks at the lodge and the boathouses are supplied.
+    </p>
+
+    <p>
+      Q: Is it safe to swim in the lake?<br>
+      A: If you want to, you can. However, keep in mind that some areas of the lake has moderate levels of arsenic, so exercise
+      caution when there are toddlers playing around. Do not encourage them to drink the lake water or eat the dirt or mud.
+    </p>
+
+    <h2>Most Recent Reviews:</h2>
+
+    <p>
+      <b>Eleni Stanton</b><br>
+      "This park was amazing. Wonderful scenery, beautiful blue lakes. I booked campsite 4. electricity, clean water,
+      clean showers, pretty much anyone could ask for. Maybe it's too luxurious. A place like this to have wifi, but
+      overall this park is amazing."<br>
+      ★★★★★★★★☆☆
+    </p>
+
+    <p>
+      <b>Reon Wagstaff</b><br>
+      "Consider myself lucky. I was fortunate enough to get a spot at the boathouses. Wow, I was amazed. The waters
+      were so clear the time I stayed there. It was incredible yet scary. Now here is a bit of advice. Don't I mean
+      DON'T TRY TO SWIM. It freezing in the middle of August. You could possibly die if you fall in with nobody to
+      help you. That what the railings are for."<br>
+      ★★★★★★★☆☆☆
+    </p>
+
+    <p>
+      <b>Dione Monagham</b><br>
+      "This park is amazing. I booked campsite one, and I was able to enjoy every single one of the trails, did
+      encounter a friendly bear."<br>
+      ★★★★★★★★★★
+    </p>
+
+    <p>
+      <b>Stephan Hanton</b><br>
+      "I booked 5 cuz it wuz cheap af, y'know but once i got there. Yoo lowkey this campsite is so sketch man. Can't
+      get a spot. Legit everyone gonna look at u like you got a prob with them or somethin. Oh ye the drinking water
+      is hella weird like this park got no sanitation or smth. tf m8 my 59 dolls gonnne now."<br>
+      ★★☆☆☆☆☆☆☆☆
+    </p>
+
+    <p>
+      <b>Oscar Tim</b><br>
+      "The park was good, not as bad as the other one's I've been to before. Like the place has good stuff such as the
+      trails, good showers, and yeah. Something I'd've wanted to know beforehand that the campsites were full of
+      people, but other than that the place is great."<br>
+      ★★★★★★★★☆☆
+    </p>
+
+    <p>
+      <b>Mopa Doblons</b><br>
+      "I booked campsite 6. I thought I was good with all my skills, but don't underestimate this campsite. While I as
+      camping slanted, a jagged rock ripped my tent and I rolled down like maybe 10 meters. To whoever is reading
+      this, be careful and be prepared. Get good gear. The campsite shops got it all. Otherwise, a great place to
+      spend if you don't break your arm."<br>
+      ★★★★★★☆☆☆☆
+    </p>
+
+    <p>
+      <b>Linas Heamtoaster</b><br>
+      "Very fun. Created a dope website about it using campsite 4's wifi."<br>
+      ★★★★★★★★★☆
+    </p>
+
+    <p>
+      <b>Yowitza Altoberet</b><br>
+      "Went for an 8 day medley. Each day I would cycle to each of the different campsites. They were all good, and
+      being sort of a litterer, I did get shouted ad by some old guy from camp 5, but that's fine. This park is
+      sick!"<br>
+      ★★★★★★★★★★
+    </p>
+
+    <p>
+      <b>Alberto Hsing</b><br>
+      "The whole park thing was pretty good. I went on their website and it looked pretty professional, especially for
+      a new one. The fact that the webpage actually resembles and feels like the actual park is something I wouldn't
+      have expected. Pretty happy that I booked early to check it out. The staff there were really nice and were
+      extremely helpful. I nearly walked off into the outhouse thinking it was a smaller cabin and a passing worker
+      called out to me to stop. Would come here next year for sure."<br>
+      ★★★★★★★★★☆
+    </p>
+  </div>
+
+  <footer name=footer>
+    <p>
+      <a href='#top'>Back To Top</a>
+    </p>
+
+    <hr>
+
+    <p>
+      Experience This Park For Yourself
+    </p>
+
+    <p>
+      Email: <a href='mailto:SSSNatP@fakemail.com' target=_blank>SSSNatP@fakemail.com</a><br>
+      Telephone: 416-999-9999<br>
+      Facebook | YouTube | Twitter | Instagram @SSSNatP<br>
+      Rules and Regulations<br>
+      © SouthSlaveShore, <br>
+      Northwest Territories, <br>
+      Fort Resolution Extended Highway<br>
+      61.20392, -113.54678<br><br>
+      <a href='https://docs.google.com/document/d/1k19W_vs5xCQ7qsJUPOo6r15s51mtlAetNs5c8FdQS_I/edit?usp=sharing' target=_blank>Bibliography</a><br><br>
+      <a href='https://drive.google.com/open?id=1C9MiIclyZEzrdZSjKgbrOlYDEKoe-ElX&usp=sharing' target=_blank>Full Park Map</a><br><br>
+    </p>
+  </footer>
+
+  <script>
+    // Id of the default tab (id=home)
+    const defaultTab = 'home';
+
+    // Set all tabs to call tabOpen(tabText) when clicked
+    var buttons = document.getElementsByClassName('navtab');
+
+    for (let i = 0; i < buttons.length; i++) {
+      buttons[i].onclick = () => tabOpen(buttons[i].innerHTML);
+    }
+
+    // Function which will open the specified tab
+    function tabOpen(tabName) {
+      console.log(tabName);
+  
+      // Remove active class from tabs except specified
+      let buttons = document.getElementsByClassName('navtab');
+
+      for (let i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove('active');
+
+        if (buttons[i].innerHTML == tabName) {
+          buttons[i].classList.add('active');
+        }
+      }
+
+      // Remove active class from tab texts except specified
+      let texts = document.getElementsByClassName('tabtext');
+  
+      for (let i = 0; i < texts.length; i++) {
+        texts[i].classList.remove('active');
+      }
+
+      document.getElementById(tabName).classList.add('active');
+    }
+
+    // Click the default tab
+    document.getElementById(defaultTab).click();
+  </script>
+</body>
+
+</html>
